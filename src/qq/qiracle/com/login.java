@@ -26,6 +26,8 @@ import javax.servlet.http.HttpSession;
 
 import qq.qiracle.db.ConnectDb;
 import qq.qiracle.db.ConnectDbImpl;
+import qq.qiracle.loginUser.UserSession;
+import qq.qiracle.loginUser.UserSessionImpl;
 
 import net.sf.json.JSONObject;
 
@@ -37,6 +39,7 @@ public class login extends HttpServlet {
 	 */
 	private static final long serialVersionUID = -7822061198602237970L;
 	private ConnectDb connectdb = new ConnectDbImpl();
+	private UserSession userSession = new UserSessionImpl();
 
 
 	/**
@@ -74,9 +77,25 @@ public class login extends HttpServlet {
 		
 		
 		HttpSession session = request.getSession(); 
-		session.setAttribute(session.getId(), loginName);
-		String name = (String) session.getAttribute(session.getId());
-		System.out.println(session.getId()+"--"+name);
+		String sessionId = session.getId();
+		session.setAttribute(sessionId,loginName );
+		String name = (String) session.getAttribute(sessionId);
+	
+		
+		System.out.println("-----"+sessionId+"----");
+		System.out.println("-----"+name+"----");
+		try {
+			userSession.insertLoginUser(loginName, sessionId);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
+		
+		
+		//String name = (String) session.getAttribute(session.getId());
+	
 		
 		
 		int type = loginObj.getInt("Type");
