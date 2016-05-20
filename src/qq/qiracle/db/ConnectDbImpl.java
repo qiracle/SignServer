@@ -1,8 +1,16 @@
-/*Copyright (C) 2016.4
- * 
- *author:Qiangqiang Jiang
- * 
- */
+//======================================================================
+ //
+ //        Copyright (C) 2016   
+ //        All rights reserved
+ //
+ //        filename :ConnectDbImpl
+ //        
+ //
+ //        created by Qiangqiang Jinag in  2016.04
+ //        https://github.com/qiracle
+ //		   qiracle@foxmail.com
+ //
+ //======================================================================
 package qq.qiracle.db;
 
 import java.sql.Connection;

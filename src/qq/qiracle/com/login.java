@@ -1,13 +1,22 @@
 
-/*Copyright (C) 2016.4
- * 
- *author:Qiangqiang Jiang
- * 
- */
+//======================================================================
+ //
+ //        Copyright (C) 2016   
+ //        All rights reserved
+ //
+ //        filename :receiveQrcode
+ //        
+ //
+ //        created by Qiangqiang Jinag in  2016.04
+ //        https://github.com/qiracle
+ //		   qiracle@foxmail.com
+ //
+ //======================================================================
 package qq.qiracle.com;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -56,13 +65,20 @@ public class login extends HttpServlet {
 		
 		
 		request.setCharacterEncoding("UTF-8");
-		HttpSession session = request.getSession(); 
-		System.out.println(session.getId());
+		
 		String userLogin = request.getParameter("UserLogin");
 		System.out.println(userLogin);
 		JSONObject loginObj = JSONObject.fromObject(userLogin);		
 		String loginName = loginObj.getString("LoginName");
 		String loginPassword = loginObj.getString("LoginPassword");
+		
+		
+		HttpSession session = request.getSession(); 
+		session.setAttribute(session.getId(), loginName);
+		String name = (String) session.getAttribute(session.getId());
+		System.out.println(session.getId()+"--"+name);
+		
+		
 		int type = loginObj.getInt("Type");
 		//System.out.println(loginName+"------"+loginPassword);
 		boolean state = false;

@@ -1,3 +1,16 @@
+//======================================================================
+ //
+ //        Copyright (C) 2016   
+ //        All rights reserved
+ //
+ //        filename :receiveQrcode
+ //        
+ //
+ //        created by Qiangqiang Jinag in  2016.04
+ //        https://github.com/qiracle
+ //		   qiracle@foxmail.com
+ //
+ //======================================================================
 package qq.qiracle.com;
 
 import java.io.IOException;
