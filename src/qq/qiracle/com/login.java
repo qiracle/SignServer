@@ -4,7 +4,7 @@
  //        Copyright (C) 2016   
  //        All rights reserved
  //
- //        filename :receiveQrcode
+ //        filename :login
  //        
  //
  //        created by Qiangqiang Jinag in  2016.04
